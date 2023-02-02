@@ -36,7 +36,8 @@ class UserService {
 
     fun getallUser(): List<User> {
 
-        //If need convert to Object list, use ClientListResponse
+        //If you need convert to Object list, use ClientListResponse
+
         //get firestore connected
         val fireStore: Firestore = FirestoreClient.getFirestore()
 
@@ -55,7 +56,7 @@ class UserService {
         return userList
     }
 
-    fun getUserByName(key: String): ClientListResponse {
+    fun getUserByName(key: String): List<User> {
 
         val fireStore: Firestore = FirestoreClient.getFirestore()
 
@@ -64,7 +65,7 @@ class UserService {
         val list: List<QueryDocumentSnapshot> = getallclient.get().documents
         val userList: List<User> = list.map { doc -> doc.toObject(User::class.java) }.toList()
 
-        return ClientListResponse(userList)
+        return userList
     }
 
     fun updateUser(user: User): ClientResponse {

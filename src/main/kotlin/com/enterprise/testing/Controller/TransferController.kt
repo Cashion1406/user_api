@@ -36,7 +36,7 @@ class TransferController {
 
 
     @GetMapping("/search")
-    fun getAllUserByName(@RequestParam key: String): ClientListResponse {
+    fun getAllUserByName(@RequestParam key: String): List<User> {
 
         return userService.getUserByName(key)
     }
