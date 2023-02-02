@@ -21,28 +21,17 @@ class FirBasconfig {
     @PostConstruct
     fun FirebaseConnection() {
         /*        val serviceAccount = FileInputStream("./firebaseConfig.json")
-
-
                 val file: File = ResourceUtils.getFile("classpath:firebaseConfig.json")*/
         val resource: Resource = ClassPathResource("./firebaseConfig.json")
         val inputStream: InputStream = resource.inputStream
-
-
         try {
 
             val options: FirebaseOptions = FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(inputStream))
                     .build()
-
             FirebaseApp.initializeApp(options)
-
         } catch (e: IOException) {
             e.printStackTrace()
-
         }
-
-
     }
-
-
 }
